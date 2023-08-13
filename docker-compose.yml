@@ -1,0 +1,22 @@
+services:
+  motorway-db:
+    image: motorway-db
+    container_name: motorway-db
+    build:
+      context: ./db/
+      target: motorway-db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=motorway
+    ports:
+      - 5432:5432
+
+  motorway-express:
+    image: motorway-express
+    container_name: motorway-express
+    build:
+      context: .
+      target: motorway-express
+    ports:
+      - 3000:3000
