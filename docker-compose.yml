@@ -20,3 +20,12 @@ services:
       target: motorway-express
     ports:
       - 3000:3000
+
+  redis:
+    image: redis
+    container_name: redis
+    build:
+      context: ./redis/
+      target: redis
+    ports:
+      - 6379:6379
